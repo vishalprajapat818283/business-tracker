@@ -96,7 +96,7 @@
 
   <header id="mainHeader" style="display:none;">
     <h1 id="headerTitle">Company</h1>
-    <button class="btn btn-danger" style="position:absolute; right:20px; top:20px;" onclick="location.reload()">Logout</button>
+    <button class="btn btn-danger" style="position:absolute; right:20px; top:20px;" onclick="logout()">Logout</button>
   </header>
 
   <div class="container" id="mainApp" style="display:none;">
@@ -292,11 +292,13 @@ window.addEventListener('load', () => {
 
     function logout() {
     localStorage.removeItem('currentSession');
+      user=null;
     location.reload(); // Page reload hote hi wapas login screen aa jayegi
 }
   </script>
 </body>
 </html>
+
 
 
 
