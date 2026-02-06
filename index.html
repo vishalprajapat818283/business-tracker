@@ -288,9 +288,16 @@ window.addEventListener('load', () => {
       ].sort((a,b)=>new Date(b.d)-new Date(a.d));
       activityTable.querySelector("tbody").innerHTML = act.map(a => `<tr><td><b>${a.t}</b></td><td>${a.d}</td><td>${a.n}</td><td>${a.q}</td><td>${a.v}</td></tr>`).join('');
     }
+
+
+    function logout() {
+    localStorage.removeItem('currentSession');
+    location.reload(); // Page reload hote hi wapas login screen aa jayegi
+}
   </script>
 </body>
 </html>
+
 
 
 
