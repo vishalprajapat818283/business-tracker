@@ -185,7 +185,16 @@
   </div>
 
   <script>
-    let user = null;
+// Purani line 'let user = null;' ko isse badal dein:
+let loggedInEmail = localStorage.getItem('currentSession');
+let user = loggedInEmail ? JSON.parse(localStorage.getItem(loggedInEmail)) : null;
+
+// Yeh naya block hai jo check karega ki user pehle se login hai ya nahi
+window.addEventListener('load', () => {
+    if (user) {
+        start();
+    }
+});
 
     function toggleAuth(reg) {
       document.getElementById('loginForm').style.display = reg ? 'none' : 'block';
@@ -204,7 +213,10 @@
 
     function login() {
       const data = JSON.parse(localStorage.getItem(lEmail.value));
-      if(data && data.pass === lPass.value) { user = data; start(); }
+      if(data && data.pass === lPass.value) {
+        user = data;
+        localStorage.setItem('currentSession', lEmail.value);
+        start(); }
       else alert("Login Failed");
     }
 
@@ -279,5 +291,6 @@
   </script>
 </body>
 </html>
+
 
 
