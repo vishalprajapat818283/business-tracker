@@ -227,7 +227,7 @@ window.addEventListener('load', () => {
       headerTitle.textContent = user.company;
       setTimeout(() => {
         render();
-    }, 50);
+    }, 500);
     }
 
     function sync() { localStorage.setItem(user.email, JSON.stringify(user)); render(); }
@@ -302,6 +302,7 @@ window.addEventListener('load', () => {
   </script>
 </body>
 </html>
+
 
 
 
